@@ -14,7 +14,7 @@ class DisplayActivity : AppCompatActivity() {
 
     val launcher = registerForActivityResult(ActivityResultContracts.StartActivityForResult()){
         it.data?.run{
-            lyricsDisplayTextView.textSize = getIntExtra(it.resultCode.toString(), 12).toFloat()
+            lyricsDisplayTextView.textSize = it.resultCode.toFloat()
         }
     }
 
