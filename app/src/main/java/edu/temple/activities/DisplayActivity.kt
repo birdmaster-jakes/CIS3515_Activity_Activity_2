@@ -8,8 +8,6 @@ import android.widget.TextView
 
 class DisplayActivity : AppCompatActivity() {
 
-    // TODO Step 3: Use returned value for lyricsDisplayTextView text size
-
     private lateinit var lyricsDisplayTextView: TextView
     private lateinit var textSizeSelectorButton: Button
 
@@ -25,5 +23,9 @@ class DisplayActivity : AppCompatActivity() {
             val intent = Intent(this, TextSizeActivity::class.java)
         }
 
+        // TODO Step 3: Use returned value for lyricsDisplayTextView text size
+        intent.getIntExtra(SIZE_KEY, 15).also {
+            lyricsDisplayTextView.textSize = it.toFloat()
+        }
     }
 }
