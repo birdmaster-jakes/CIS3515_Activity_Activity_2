@@ -9,7 +9,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
-const val SIZE_KEY = "Display Size"
 class TextSizeActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -25,9 +24,10 @@ class TextSizeActivity : AppCompatActivity() {
         with (findViewById(R.id.textSizeSelectorRecyclerView) as RecyclerView) {
 
             // TODO Step 2: Pass selected value back to activity that launched TextSizeActivity
-            adapter = TextSizeAdapter(textSizes){
-                val intent = Intent()
-                intent.putExtra(SIZE_KEY, it)
+            adapter = TextSizeAdapter(textSizes){ size ->
+                setResult(size)
+                finish()
+
             }
             layoutManager = LinearLayoutManager(this@TextSizeActivity)
         }
